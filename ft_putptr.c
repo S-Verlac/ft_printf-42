@@ -1,48 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_put_unsigned_nbr.c                              :+:      :+:    :+:   */
+/*   ft_putptr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbachar <mbachar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/17 14:26:56 by mbachar           #+#    #+#             */
-/*   Updated: 2022/11/18 05:31:26 by mbachar          ###   ########.fr       */
+/*   Created: 2022/11/17 23:24:36 by mbachar           #+#    #+#             */
+/*   Updated: 2022/11/18 05:20:23 by mbachar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static	int	ft_nbrlen(unsigned int nbr)
+int	ft_putptr(unsigned long long n)
 {
-	int	len;
+	char		*x_lower;
 
-	len = 0;
-	if (nbr == 0)
+	x_lower = "0123456789abcdef";
+	if (n < 16)
+		ft_putchar(x_lower[n]);
+	if (n >= 16)
 	{
-		nbr /= 10;
-		len++;
+		ft_putptr(n / 16);
+		ft_putchar(x_lower[n % 16]);
 	}
-	while (nbr)
-	{
-		nbr /= 10;
-		len++;
-	}
-	return (len);
-}
-
-int	ft_put_unsigned_nbr(unsigned int n)
-{
-	int	len;
-
-	len = ft_nbrlen(n);
-	if (n <= 9)
-	{
-		ft_putchar(n + 48);
-	}
-	if (n > 9)
-	{
-		ft_put_unsigned_nbr(n / 10);
-		ft_putchar((n % 10) + 48);
-	}
-	return (len);
+	return (ft_hexlen(n));
 }

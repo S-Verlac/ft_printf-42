@@ -6,7 +6,7 @@
 /*   By: mbachar <mbachar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/12 09:49:09 by mbachar           #+#    #+#             */
-/*   Updated: 2022/11/17 13:56:24 by mbachar          ###   ########.fr       */
+/*   Updated: 2022/11/18 05:08:49 by mbachar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,18 @@
 
 int	ft_putstr(char *s)
 {
-	int	i;
 	int	len;
+	int	i;
 
-	i = 0;
 	len = 0;
-	if (!*s)
+	i = 0;
+	if (!s)
 		return (write(1, "(null)", 6));
-	while (*s != '\0')
+	while (s[i] != '\0')
 	{
-		ft_putchar(*s);
-		s++;
+		ft_putchar(s[i]);
 		len++;
+		i++;
 	}
 	return (len);
 }

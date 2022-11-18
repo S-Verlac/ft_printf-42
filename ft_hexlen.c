@@ -1,54 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_hexlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbachar <mbachar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/17 12:34:58 by mbachar           #+#    #+#             */
-/*   Updated: 2022/11/18 04:44:41 by mbachar          ###   ########.fr       */
+/*   Created: 2022/11/17 22:52:04 by mbachar           #+#    #+#             */
+/*   Updated: 2022/11/17 22:52:23 by mbachar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static	int	ft_nbrlen(int nbr)
+int	ft_hexlen(int nbr)
 {
 	int	len;
 
 	len = 0;
 	if (nbr == 0)
 	{
-		nbr /= 10;
+		nbr /= 16;
 		len++;
 	}
 	while (nbr)
 	{
-		nbr /= 10;
+		nbr /= 16;
 		len++;
-	}
-	return (len);
-}
-
-int	ft_putnbr(int n)
-{
-	int	len;
-
-	len = ft_nbrlen(n);
-	if (n == -2147483648)
-		return (write(1, "-2147483648", 11));
-	if (n < 0)
-	{
-		ft_putchar('-');
-		n = n * (-1);
-		len++;
-	}
-	if (n <= 9)
-		ft_putchar(n + 48);
-	if (n > 9)
-	{
-		ft_putnbr(n / 10);
-		ft_putchar((n % 10) + 48);
 	}
 	return (len);
 }

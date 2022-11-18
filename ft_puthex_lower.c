@@ -1,21 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_puthex.c                                        :+:      :+:    :+:   */
+/*   ft_puthex_lower.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbachar <mbachar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/17 12:55:28 by mbachar           #+#    #+#             */
-/*   Updated: 2022/11/17 14:26:06 by mbachar          ###   ########.fr       */
+/*   Created: 2022/11/17 22:09:17 by mbachar           #+#    #+#             */
+/*   Updated: 2022/11/18 05:22:04 by mbachar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_puthex()
+int	ft_puthex_lower(unsigned int n)
 {
-	int	len;
+	char	*x_lower;
 
-	len = 0;
-	
+	x_lower = "0123456789abcdef";
+	if (n < 16)
+		ft_putchar(x_lower[n]);
+	if (n >= 16)
+	{
+		ft_puthex_lower(n / 16);
+		ft_putchar(x_lower[n % 16]);
+	}
+	return (ft_hexlen(n));
 }
