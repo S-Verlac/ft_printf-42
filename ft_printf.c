@@ -6,7 +6,7 @@
 /*   By: mbachar <mbachar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 00:23:46 by mbachar           #+#    #+#             */
-/*   Updated: 2022/11/18 05:30:13 by mbachar          ###   ########.fr       */
+/*   Updated: 2022/11/18 22:35:16 by mbachar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,10 @@ int	ft_check_next(va_list args, char c)
 		i = i + ft_puthex_upper(va_arg(args, unsigned int));
 	if (c == 'p')
 	{
-		write(1, "0x", 2);
-		i = 2;
+		i = i + write(1, "0x", 2);
 		i = i + ft_putptr(va_arg(args, unsigned long long));
 	}
-	else if (c == '%')
+	if (c == '%')
 		i = i + ft_putchar('%');
 	return (i);
 }

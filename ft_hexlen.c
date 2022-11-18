@@ -6,23 +6,20 @@
 /*   By: mbachar <mbachar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 22:52:04 by mbachar           #+#    #+#             */
-/*   Updated: 2022/11/17 22:52:23 by mbachar          ###   ########.fr       */
+/*   Updated: 2022/11/18 21:24:25 by mbachar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_hexlen(int nbr)
+int	ft_hexlen(unsigned long nbr)
 {
 	int	len;
 
 	len = 0;
 	if (nbr == 0)
-	{
-		nbr /= 16;
 		len++;
-	}
-	while (nbr)
+	while (nbr != 0)
 	{
 		nbr /= 16;
 		len++;
