@@ -6,7 +6,7 @@
 /*   By: mbachar <mbachar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 12:34:58 by mbachar           #+#    #+#             */
-/*   Updated: 2022/11/18 04:44:41 by mbachar          ###   ########.fr       */
+/*   Updated: 2022/11/18 22:51:05 by mbachar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,7 @@ static	int	ft_nbrlen(int nbr)
 
 	len = 0;
 	if (nbr == 0)
-	{
-		nbr /= 10;
 		len++;
-	}
 	while (nbr)
 	{
 		nbr /= 10;
